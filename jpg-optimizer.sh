@@ -9,6 +9,35 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 RESET='\033[0m'
 
+# Display help message
+display_help() {
+    echo -e "${CYAN}Usage: ./jpg-optimizer.sh [OPTIONS]${RESET}"
+    echo
+    echo -e "${GREEN}Options:${RESET}"
+    echo -e "  ${YELLOW}-r${RESET}                 Search for images recursively in subdirectories."
+    echo -e "  ${YELLOW}--help, -h${RESET}          Display this help text."
+    echo
+    echo -e "${CYAN}Description:${RESET}"
+    echo "  This script processes JPEG images in the specified directory, optimizes them by resizing"
+    echo "  them to the given longest side dimension, and compresses them according to the quality setting."
+    echo
+    echo -e "${GREEN}Prompts:${RESET}"
+    echo -e "  ${YELLOW}Input Directory:${RESET} Specify the directory containing the images to process."
+    echo -e "  ${YELLOW}Output Directory:${RESET} Specify the directory where processed images will be saved."
+    echo -e "  ${YELLOW}Longest Side:${RESET} Enter the longest side dimension for resizing the images (in pixels)."
+    echo -e "  ${YELLOW}Quality Setting:${RESET} Choose from 'compressed', 'balanced', or 'quality'."
+    echo
+    echo -e "${CYAN}Example:${RESET}"
+    echo "  ./jpg-optimizer.sh -r"
+    echo "  ./jpg-optimizer.sh"
+    exit 0
+}
+
+# Check for --help or -h option
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    display_help
+fi
+
 # Function to display a spinning loader
 spinner() {
     local pid=$1
