@@ -11,7 +11,7 @@ RESET='\033[0m'
 
 # Display help message
 display_help() {
-    echo -e "${CYAN}Usage: ./jpg-optimizer.sh [OPTIONS]${RESET}"
+    echo -e "${CYAN}Usage: jpg-optimizer [OPTIONS]${RESET}"
     echo
     echo -e "${GREEN}Options:${RESET}"
     echo -e "  ${YELLOW}-r${RESET}                 Search for images recursively in subdirectories."
@@ -28,8 +28,8 @@ display_help() {
     echo -e "  ${YELLOW}Quality Setting:${RESET} Choose from 'compressed', 'balanced', or 'quality'."
     echo
     echo -e "${CYAN}Example:${RESET}"
-    echo "  ./jpg-optimizer.sh -r"
-    echo "  ./jpg-optimizer.sh"
+    echo "  jpg-optimizer -r"
+    echo "  jpg-optimizer"
     exit 0
 }
 
